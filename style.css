@@ -107,11 +107,14 @@ body {
     padding: clamp(1rem, 5vw, 2rem);
     box-shadow: var(--shadow-soft);
     text-align: center;
-    width: min(90%, 500px);
+    width: min(90%, 700px);
     position: relative;
     z-index: 10;
     transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     margin: 1rem auto;
+    /* Ensure height fits content on desktop */
+    height: auto;
+    min-height: auto;
 }
 
 /* Specific overlay centering */
@@ -404,7 +407,7 @@ body {
 }
 
 .photo-frame {
-    width: min(100%, 400px);
+    width: min(100%, 600px);
     margin-left: auto;
     margin-right: auto;
     border-radius: 20px;
@@ -428,7 +431,8 @@ body {
     display: block;
     object-fit: cover;
     min-height: 150px;
-    max-height: 50vh;
+    max-height: 75vh;
+    /* Increased from 50vh to 75vh for desktop */
 }
 
 .photo-frame.dramatic {
@@ -461,6 +465,10 @@ body {
 .main-video {
     width: 100%;
     display: block;
+    max-height: 70vh;
+    /* Ensure video fits vertically on desktop */
+    object-fit: contain;
+    /* Ensure full video is visible */
 }
 
 .lock-icon-small {
@@ -573,6 +581,8 @@ body {
     transform: translate(-50%, -50%) scale(0);
     animation: pulse 2s infinite;
     z-index: -1;
+    pointer-events: none;
+    /* Ensure click passes through */
 }
 
 @keyframes pulse {
