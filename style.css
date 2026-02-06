@@ -107,13 +107,12 @@ body {
     padding: clamp(1rem, 5vw, 2rem);
     box-shadow: var(--shadow-soft);
     text-align: center;
-    width: min(90%, 700px);
+    width: min(90%, 450px);
     position: relative;
     z-index: 10;
     transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     margin: 1rem auto;
     /* Ensure height fits content on desktop */
-    height: auto;
     min-height: auto;
 }
 
@@ -407,7 +406,7 @@ body {
 }
 
 .photo-frame {
-    width: min(100%, 600px);
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
     border-radius: 20px;
@@ -429,10 +428,12 @@ body {
     width: 100%;
     height: auto;
     display: block;
-    object-fit: cover;
+    object-fit: contain;
+    /* Ensure full image is visible in narrow card */
     min-height: 150px;
-    max-height: 75vh;
-    /* Increased from 50vh to 75vh for desktop */
+    max-height: 60vh;
+    background-color: var(--white);
+    /* Fill empty space if contain leaves gaps */
 }
 
 .photo-frame.dramatic {
@@ -531,6 +532,11 @@ body {
     transform: translateZ(0);
     -webkit-font-smoothing: subpixel-antialiased;
     will-change: transform;
+}
+
+/* Ensure clicks pass through all children of the button to the button itself */
+.yes-btn * {
+    pointer-events: none;
 }
 
 .yes-btn:hover {
