@@ -654,43 +654,43 @@ canvas {
         max-width: 450px !important;
         padding: 1.5rem !important;
         margin: 1rem auto !important;
-        min-height: auto !important;
+        min-height: 50vh !important;
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
     }
 
     .title {
-        font-size: clamp(1.5rem, 6vw, 2rem) !important;
-        margin-bottom: 0.75rem !important;
+        font-size: clamp(2.2rem, 8vw, 3rem) !important;
+        margin-bottom: 1rem !important;
         margin-top: 0.5rem !important;
     }
 
     .gift-box {
-        width: 70px;
-        height: 70px;
-        margin-top: 0.75rem;
-        margin-bottom: 0.75rem;
+        width: 100px;
+        height: 100px;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
     }
 
     .gift-body {
-        width: 70px;
-        height: 50px;
+        width: 100px;
+        height: 70px;
     }
 
     .gift-lid {
-        width: 80px;
-        height: 15px;
+        width: 110px;
+        height: 20px;
     }
 
     .gift-bow {
-        top: -15px;
-        width: 40px;
-        height: 12px;
+        top: -20px;
+        width: 60px;
+        height: 15px;
     }
 
     .loading-text,
     .instruction-text {
-        font-size: 1rem;
-        margin: 0.25rem 0;
+        font-size: 1.8rem;
+        margin: 0.5rem 0;
     }
 
     .photo-frame,
