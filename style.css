@@ -19,6 +19,14 @@
     -webkit-tap-highlight-color: transparent !important;
 }
 
+html,
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden !important;
+}
+
 body {
     font-family: var(--font-body);
     color: var(--text-dark);
@@ -52,7 +60,41 @@ body {
     }
 }
 
+/* Decorative Blobs */
+.blob {
+    position: fixed;
+    width: clamp(200px, 40vw, 400px);
+    height: clamp(200px, 40vw, 400px);
+    background: var(--soft-pink);
+    border-radius: 50%;
+    z-index: -1;
+    filter: blur(60px);
+    opacity: 0.5;
+    pointer-events: none;
+}
 
+.blob-1 {
+    top: -10%;
+    left: -10%;
+    background: #ff4d6d;
+    opacity: 0.15;
+}
+
+.blob-2 {
+    bottom: -10%;
+    right: -10%;
+    background: #ffccd5;
+    opacity: 0.3;
+}
+
+.blob-3 {
+    top: 30%;
+    right: -5%;
+    width: 250px;
+    height: 250px;
+    background: #ffb3c1;
+    opacity: 0.2;
+}
 
 /* Glassmorphism Container */
 .container,
@@ -362,7 +404,9 @@ body {
 }
 
 .photo-frame {
-    width: 100%;
+    width: min(100%, 400px);
+    margin-left: auto;
+    margin-right: auto;
     border-radius: 20px;
     overflow: hidden;
     margin-bottom: 2rem;
@@ -587,29 +631,37 @@ canvas {
 /* Mobile Responsiveness */
 @media (max-width: 600px) {
     body {
-        display: block;
-        padding: 5px;
+        display: flex;
+        /* Restore flex for centering */
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        min-height: 100svh;
         overflow-x: hidden !important;
     }
 
-
+    .blob {
+        display: block !important;
+        opacity: 0.4;
+        filter: blur(40px);
+    }
 
     .container,
     .container-overlay,
     #gift-container {
-        width: 95% !important;
-        max-width: 350px !important;
-        padding: 0.5rem !important;
-        margin: 5px auto !important;
+        width: min(92%, 450px) !important;
+        max-width: 450px !important;
+        padding: 1.5rem !important;
+        margin: 1rem auto !important;
         min-height: auto !important;
-        transition: none !important;
-        /* Disable transitions on mobile to prevent layout shift calculations */
+        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
     }
 
     .title {
-        font-size: 1.4rem !important;
-        margin-bottom: 0.25rem !important;
-        margin-top: 0.25rem !important;
+        font-size: clamp(1.5rem, 6vw, 2rem) !important;
+        margin-bottom: 0.75rem !important;
+        margin-top: 0.5rem !important;
     }
 
     .gift-box {
@@ -643,35 +695,41 @@ canvas {
 
     .photo-frame,
     .video-frame {
-        margin-bottom: 0.2rem !important;
-        max-height: 12vh !important;
-        border-width: 2px !important;
+        margin-bottom: 1rem !important;
+        max-height: 55vh !important;
+        aspect-ratio: 3/4 !important;
+        height: auto !important;
+        border-width: 3px !important;
         transform: none !important;
     }
 
     .main-photo,
     .success-photo,
     .main-video {
-        max-height: 12vh !important;
-        object-fit: contain;
+        width: 100% !important;
+        height: 100% !important;
+        max-height: none !important;
+        object-fit: cover !important;
         background: transparent;
         min-height: auto;
     }
 
     .buttons {
         display: flex;
-        flex-direction: column !important;
-        gap: 5px !important;
+        flex-direction: row !important;
+        flex-wrap: wrap;
+        gap: 10px !important;
+        justify-content: center;
         align-items: center;
         min-height: auto;
-        margin-top: 0.25rem !important;
+        margin-top: 0.75rem !important;
     }
 
     .btn {
-        width: 100%;
-        max-width: 180px;
-        padding: 8px 10px;
-        font-size: 0.85rem;
+        width: auto;
+        min-width: 120px;
+        padding: 10px 20px;
+        font-size: 0.95rem;
     }
 
     .yes-btn:hover {
