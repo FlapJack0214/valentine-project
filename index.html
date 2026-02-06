@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Impossible Choice</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Pacifico&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <audio id="bg-music" loop>
+        <source src="assets/romantic-music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Decorative Background Elements -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+
+    <!-- Loading Screen -->
+    <div class="container-overlay" id="loading-screen">
+        <div class="heart-spinner"></div>
+        <p class="loading-text">Loading Love...</p>
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+    </div>
+
+    <!-- Gift Screen -->
+    <div class="container-overlay hidden" id="gift-container">
+        <div class="gift-box" id="gift-box">
+            <div class="gift-lid">
+                <div class="gift-bow"></div>
+            </div>
+            <div class="gift-body">
+                <div class="ribbon-vertical"></div>
+                <div class="ribbon-horizontal"></div>
+            </div>
+        </div>
+        <p class="instruction-text">Tap to Open</p>
+    </div>
+
+    <!-- Main Game Container -->
+    <div class="container hidden" id="game-container">
+        <h1 class="title">Will you be my Valentine?</h1>
+        <div class="photo-frame">
+            <img src="assets/couple-photo.jpg" alt="Us" class="main-photo">
+        </div>
+
+        <div class="buttons">
+            <button id="yes-btn" class="btn yes-btn locked">Yes <span id="lock-icon"></span></button>
+            <button id="no-btn" class="btn no-btn">No</button>
+        </div>
+    </div>
+
+    <!-- Suspense Screen -->
+    <div id="suspense-container" class="container hidden">
+        <h1 class="title">Really? 🤯😨😳</h1>
+        <div class="simple-spinner"></div>
+        <p class="loading-text">...</p>
+    </div>
+
+    <!-- Comedic Question Screen -->
+    <div id="question-container" class="container hidden">
+        <h1 class="title">Are you sure? 🤨</h1>
+        <div class="photo-frame dramatic">
+            <img src="assets/funny-serious.jpg" alt="🤨" class="main-photo">
+        </div>
+        <div class="buttons">
+            <button id="question-yes-btn" class="btn yes-btn locked">Yes <span class="lock-icon-small"></span></button>
+            <button id="question-no-btn" class="btn no-btn">No</button>
+        </div>
+    </div>
+
+    <!-- Cute Video Question Screen -->
+    <div id="video-container" class="container hidden">
+        <h1 class="title">Even if I mess with you <br> all the time? 🥰</h1>
+        <div class="video-frame">
+            <video id="couple-video" class="main-video" loop playsinline muted>
+                <source src="assets/couple-video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="buttons">
+            <button id="video-yes-btn" class="btn yes-btn locked">Yes <span id="video-lock-icon"
+                    class="lock-icon-small"></span></button>
+            <button id="video-no-btn" class="btn no-btn">No</button>
+        </div>
+    </div>
+
+    <!-- Custom Modal System -->
+    <div id="modal-overlay" class="modal-overlay hidden">
+        <div class="modal-card">
+            <h2 id="modal-title" class="modal-title">Warning</h2>
+            <p id="modal-message" class="modal-message">This is a message.</p>
+            <div id="modal-buttons" class="modal-buttons">
+                <!-- Buttons will be injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <div class="container hidden" id="success-container">
+        <h1 class="title">Just kidding! I know you love me. <br> Happy Valentine's Day! ❤️</h1>
+        <div class="photo-frame">
+            <img src="assets/success-image.jpg" alt="Success" class="success-photo">
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

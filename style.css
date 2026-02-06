@@ -1,0 +1,772 @@
+:root {
+    --primary-pink: #ff4d6d;
+    --hover-pink: #ff3355;
+    --soft-pink: #ffccd5;
+    --glass-bg: rgba(255, 255, 255, 0.75);
+    --glass-border: rgba(255, 255, 255, 0.5);
+    --white: #ffffff;
+    --text-dark: #4a1c24;
+    --shadow-soft: 0 8px 32px 0 rgba(142, 68, 87, 0.15);
+
+    --font-heading: 'Pacifico', cursive;
+    --font-body: 'Nunito', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-dark);
+    /* Animated Gradient Background */
+    background: linear-gradient(-45deg, #ffccd5, #ffb3c1, #fff0f3, #ffe6eb);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Background Blobs */
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(40px);
+    z-index: 1;
+    opacity: 0.6;
+    animation: float 20s infinite alternate;
+}
+
+.blob-1 {
+    top: -10%;
+    left: -10%;
+    width: 300px;
+    height: 300px;
+    background: #ff8fa3;
+    animation-delay: 0s;
+}
+
+.blob-2 {
+    bottom: -10%;
+    right: -10%;
+    width: 400px;
+    height: 400px;
+    background: #ffccd5;
+    animation-delay: -5s;
+}
+
+.blob-3 {
+    top: 40%;
+    left: 80%;
+    width: 200px;
+    height: 200px;
+    background: #fff0f3;
+    animation-delay: -10s;
+}
+
+@keyframes float {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    100% {
+        transform: translate(30px, 50px) scale(1.1);
+    }
+}
+
+/* Glassmorphism Container */
+.container,
+.container-overlay {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 2.5rem;
+    box-shadow: var(--shadow-soft);
+    text-align: center;
+    max-width: 90%;
+    width: 420px;
+    position: relative;
+    z-index: 10;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Specific overlay centering */
+.container-overlay {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+}
+
+/* Modern Soft Glowing Heart */
+.heart-spinner {
+    width: 60px;
+    height: 60px;
+    background-color: var(--primary-pink);
+    position: relative;
+    transform: rotate(-45deg);
+    animation: softBeat 1.5s infinite ease-in-out;
+    margin-bottom: 30px;
+    box-shadow: 0 0 15px rgba(255, 77, 109, 0.6);
+}
+
+.heart-spinner::before,
+.heart-spinner::after {
+    content: "";
+    width: 60px;
+    height: 60px;
+    background-color: var(--primary-pink);
+    border-radius: 50%;
+    position: absolute;
+    box-shadow: 0 0 15px rgba(255, 77, 109, 0.6);
+}
+
+.heart-spinner::before {
+    top: -30px;
+    left: 0;
+}
+
+.heart-spinner::after {
+    top: 0;
+    left: 30px;
+}
+
+/* Double heartbeat rhythm */
+@keyframes softBeat {
+    0% {
+        transform: rotate(-45deg) scale(0.95);
+        box-shadow: 0 0 10px rgba(255, 77, 109, 0.4);
+    }
+
+    15% {
+        transform: rotate(-45deg) scale(1.1);
+        box-shadow: 0 0 25px rgba(255, 77, 109, 0.8);
+    }
+
+    30% {
+        transform: rotate(-45deg) scale(0.95);
+        box-shadow: 0 0 10px rgba(255, 77, 109, 0.4);
+    }
+
+    45% {
+        transform: rotate(-45deg) scale(1.05);
+        /* Smaller second beat */
+        box-shadow: 0 0 20px rgba(255, 77, 109, 0.6);
+    }
+
+    60% {
+        transform: rotate(-45deg) scale(0.95);
+        box-shadow: 0 0 10px rgba(255, 77, 109, 0.4);
+    }
+
+    100% {
+        transform: rotate(-45deg) scale(0.95);
+        box-shadow: 0 0 10px rgba(255, 77, 109, 0.4);
+    }
+}
+
+/* Simple Circle Spinner */
+.simple-spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(255, 77, 109, 0.2);
+    border-top: 5px solid var(--primary-pink);
+    border-radius: 50%;
+    margin: 2rem auto;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Question Mark Animation */
+.question-mark-spinner {
+    font-size: 4rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    animation: bounceQuestion 1s infinite alternate;
+}
+
+@keyframes bounceQuestion {
+    0% {
+        transform: scale(1) rotate(-10deg);
+    }
+
+    100% {
+        transform: scale(1.2) rotate(10deg);
+    }
+}
+
+.loading-text,
+.instruction-text {
+    font-size: 1.5rem;
+    color: var(--primary-pink);
+    font-weight: bold;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* Progress Bar */
+.progress-container {
+    width: 200px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 15px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.progress-bar {
+    width: 0%;
+    height: 100%;
+    background-color: var(--primary-pink);
+    border-radius: 10px;
+    transition: width 0.1s linear;
+}
+
+/* Modern Cute Gift Box */
+/* GIFT SCREEN - REVERTED TO FIRST DESIGN */
+#gift-container {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 2.5rem;
+    box-shadow: var(--shadow-soft);
+    text-align: center;
+    max-width: 90%;
+    width: 420px;
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+}
+
+.gift-box {
+    width: 140px;
+    height: 140px;
+    position: relative;
+    cursor: pointer;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    animation: floatGift 3s ease-in-out infinite;
+    transition: transform 0.3s ease;
+}
+
+.gift-box:hover {
+    transform: scale(1.05);
+}
+
+.gift-body {
+    width: 140px;
+    height: 110px;
+    background: linear-gradient(135deg, #ff4d6d, #ff3355);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.ribbon-vertical {
+    position: absolute;
+    width: 20px;
+    height: 100%;
+    background-color: #fff;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.05);
+}
+
+.ribbon-horizontal {
+    position: absolute;
+    width: 100%;
+    height: 20px;
+    background-color: #fff;
+    top: 50%;
+    transform: translateY(-50%);
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.05);
+}
+
+.gift-lid {
+    width: 150px;
+    height: 35px;
+    background: linear-gradient(135deg, #ff4d6d, #ff758c);
+    position: absolute;
+    top: 0;
+    left: -5px;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+}
+
+.gift-bow {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 80px;
+}
+
+.gift-bow::before,
+.gift-bow::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    border-radius: 50% 50% 0 50%;
+    top: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.gift-bow::before {
+    left: 0;
+    transform: rotate(30deg);
+}
+
+.gift-bow::after {
+    right: 0;
+    transform: rotate(-30deg) scaleX(-1);
+}
+
+.instruction-text {
+    font-size: 1.5rem;
+    color: var(--primary-pink);
+    font-weight: bold;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+@keyframes floatGift {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+
+.hidden {
+    display: none !important;
+}
+
+.title {
+    font-family: var(--font-heading);
+    color: var(--primary-pink);
+    font-size: 2.8rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    text-shadow: 2px 2px 0px rgba(255, 255, 255, 0.5);
+}
+
+.photo-frame {
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    border: 6px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    background-color: var(--white);
+    transform: rotate(-2deg);
+    transition: transform 0.5s ease;
+}
+
+.container:hover .photo-frame {
+    transform: rotate(0deg) scale(1.02);
+}
+
+.main-photo,
+.success-photo {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    min-height: 200px;
+}
+
+.photo-frame.dramatic {
+    transform: rotate(0deg) scale(1.05);
+    border: 8px solid #333;
+    /* Initial Black */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    filter: sepia(0.3) contrast(1.2);
+    transition: border-color 0.5s ease, transform 0.5s ease;
+}
+
+/* Video Frame Styles */
+.video-frame {
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    border: 6px solid #ccc;
+    /* Initial Grey */
+    box-shadow: 0 8px 25px rgba(255, 77, 109, 0.2);
+    background-color: #000;
+    transition: border-color 0.5s ease;
+}
+
+.video-frame.frame-pink,
+.photo-frame.frame-pink {
+    border-color: var(--primary-pink) !important;
+}
+
+.main-video {
+    width: 100%;
+    display: block;
+}
+
+.lock-icon-small {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url('assets/heart-lock.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: brightness(0);
+    margin-left: 5px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+    min-height: 60px;
+    margin-top: 1rem;
+}
+
+.btn {
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 12px 35px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.yes-btn {
+    background-color: var(--primary-pink);
+    color: var(--white);
+    box-shadow: 0 8px 20px rgba(255, 77, 109, 0.3);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.yes-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    background-color: var(--hover-pink);
+    box-shadow: 0 12px 25px rgba(255, 77, 109, 0.4);
+}
+
+/* Locked State for Yes Button */
+.yes-btn.locked {
+    background-color: #cccccc;
+    /* Solid grey when locked */
+    color: #000000;
+    /* Black text */
+    cursor: not-allowed;
+    box-shadow: none;
+    font-weight: 800;
+    /* Remove background image as icon is now a separate element */
+}
+
+.yes-btn.locked:hover {
+    background-color: #cccccc;
+    box-shadow: none;
+}
+
+#lock-icon {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-image: url('assets/heart-lock.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* Ensure icon is solid black for contrast */
+    filter: brightness(0);
+}
+
+/* Subtle pulse for Yes button */
+.yes-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    transform: translate(-50%, -50%) scale(0);
+    animation: pulse 2s infinite;
+    z-index: -1;
+}
+
+@keyframes pulse {
+    0% {
+        transform: translate(-50%, -50%) scale(0.9);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* Suspense Container Style */
+#suspense-container {
+    text-align: center;
+}
+
+.simple-spinner {
+    width: 60px;
+    height: 60px;
+    border: 5px solid rgba(255, 77, 109, 0.2);
+    border-top: 5px solid var(--primary-pink);
+    border-radius: 50%;
+    margin: 20px auto;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.no-btn {
+    background-color: rgba(255, 255, 255, 0.5);
+    /* Ghost/Glass button */
+    color: #777;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4px);
+    position: relative;
+}
+
+/* Confetti Specific Styles */
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 999;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+
+    .container,
+    .container-overlay {
+        width: 95%;
+        max-width: 95%;
+        padding: 1.5rem;
+    }
+
+    .title {
+        font-size: 2rem;
+        /* Smaller title on mobile */
+    }
+
+    .gift-box {
+        width: 100px;
+        /* Smaller gift box */
+        height: 100px;
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .gift-body {
+        width: 100px;
+        height: 80px;
+    }
+
+    .gift-lid {
+        width: 110px;
+        height: 25px;
+        left: -5px;
+        top: -10px;
+    }
+
+    .gift-bow {
+        top: -25px;
+        width: 60px;
+        height: 20px;
+    }
+
+    .gift-bow::before,
+    .gift-bow::after {
+        width: 35px;
+        height: 35px;
+        border-width: 6px;
+    }
+
+    .loading-text,
+    .instruction-text {
+        font-size: 1.2rem;
+    }
+
+    .buttons {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+        min-height: auto;
+        /* Allow flexible height */
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 280px;
+        /* Consistent max width */
+        padding: 14px 20px;
+        /* Larger touch target area */
+        font-size: 1.1rem;
+    }
+
+    .yes-btn:hover {
+        /* Disable hover transform on touch devices to avoid sticking */
+        transform: none;
+    }
+}
+
+/* Custom Modal System */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.modal-overlay:not(.hidden) {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 2.5rem;
+    border-radius: 30px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    transform: scale(0.8);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modal-overlay:not(.hidden) .modal-card {
+    transform: scale(1);
+}
+
+.modal-title {
+    font-family: var(--font-heading);
+    color: var(--primary-pink);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.modal-message {
+    font-family: var(--font-body);
+    color: var(--text-dark);
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.modal-btn {
+    padding: 10px 25px;
+    font-size: 1rem;
+    min-width: 120px;
+}
+
+/* Very Small Screens */
+@media (max-width: 380px) {
+    .title {
+        font-size: 1.6rem;
+    }
+
+    .btn {
+        font-size: 1rem;
+        padding: 12px 15px;
+    }
+}
