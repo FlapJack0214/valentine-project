@@ -66,8 +66,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // Percentage-Based Positioning (Device Agnostic)
         // We use a safe range of 10% to 90% for the CENTER of the button
         // This generally ensures the button stays on screen regardless of exact pixel size
-        const min = 15; // 15%
-        const max = 85; // 85%
+        const min = 25; // 25% for safer mobile boundaries
+        const max = 75; // 75% for safer mobile boundaries
 
         const randomX = Math.floor(Math.random() * (max - min)) + min;
         const randomY = Math.floor(Math.random() * (max - min)) + min;
