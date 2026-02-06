@@ -518,6 +518,11 @@ body {
     align-items: center;
     justify-content: center;
     gap: 5px;
+    /* Fix for pixelated text on scale */
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    -webkit-font-smoothing: subpixel-antialiased;
+    will-change: transform;
 }
 
 .yes-btn:hover {
@@ -664,27 +669,12 @@ canvas {
         margin-top: 0.5rem !important;
     }
 
+    /* Gift dimensions removed to match desktop design */
     .gift-box {
-        width: 100px;
-        height: 100px;
+        transform: scale(0.8);
+        /* Scale down slightly for mobile if needed, but keep proportions */
         margin-top: 1rem;
         margin-bottom: 1rem;
-    }
-
-    .gift-body {
-        width: 100px;
-        height: 70px;
-    }
-
-    .gift-lid {
-        width: 110px;
-        height: 20px;
-    }
-
-    .gift-bow {
-        top: -20px;
-        width: 60px;
-        height: 15px;
     }
 
     .loading-text,
