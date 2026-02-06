@@ -400,7 +400,9 @@ body {
     font-family: var(--font-heading);
     color: var(--primary-pink);
     font-size: clamp(1.6rem, 7vw, 2.8rem);
-    margin-bottom: 1rem;
+    font-size: clamp(1.6rem, 7vw, 2.8rem);
+    margin-bottom: 2rem;
+    /* Increased spacing from frame */
     line-height: 1.1;
     text-shadow: 2px 2px 0px rgba(255, 255, 255, 0.5);
 }
@@ -431,7 +433,8 @@ body {
     object-fit: contain;
     /* Ensure full image is visible in narrow card */
     min-height: 150px;
-    max-height: 60vh;
+    /* Remove strict max-height to allow image to flow naturally */
+    max-height: none;
     background-color: var(--white);
     /* Fill empty space if contain leaves gaps */
 }
@@ -520,9 +523,12 @@ body {
     background-color: var(--primary-pink);
     color: var(--white);
     box-shadow: 0 8px 20px rgba(255, 77, 109, 0.3);
+    box-shadow: 0 8px 20px rgba(255, 77, 109, 0.3);
     position: relative;
-    overflow: hidden;
-    z-index: 1;
+    overflow: visible;
+    /* Allow pulse to spill out, ensuring hit area isn't clipped */
+    z-index: 9999;
+    /* Force above all other elements */
     display: flex;
     align-items: center;
     justify-content: center;
